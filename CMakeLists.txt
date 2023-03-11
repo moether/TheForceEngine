@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 set(CMAKE_DISABLE_SOURCE_CHANGES ON)
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
@@ -66,13 +66,13 @@ if(LINUX)
 	
 	# set up build directory to be able to run TFE immediately: symlink
 	# the necessary support file directories into the build env.
-	execute_process(COMMAND ln -sf ${CMAKE_SOURCE_DIR}/TheForceEngine/Documentation)
-	execute_process(COMMAND ln -sf ${CMAKE_SOURCE_DIR}/TheForceEngine/Fonts)
-	execute_process(COMMAND ln -sf ${CMAKE_SOURCE_DIR}/TheForceEngine/Mods)
-	execute_process(COMMAND ln -sf ${CMAKE_SOURCE_DIR}/TheForceEngine/Shaders)
-	execute_process(COMMAND ln -sf ${CMAKE_SOURCE_DIR}/TheForceEngine/SoundFonts)
-	execute_process(COMMAND ln -sf ${CMAKE_SOURCE_DIR}/TheForceEngine/UI_Images)
-	execute_process(COMMAND ln -sf ${CMAKE_SOURCE_DIR}/TheForceEngine/UI_Text)
+	file(CREATE_LINK ${CMAKE_SOURCE_DIR}/TheForceEngine/Documentation Documentation SYMBOLIC)
+	file(CREATE_LINK ${CMAKE_SOURCE_DIR}/TheForceEngine/Fonts Fonts SYMBOLIC)
+	file(CREATE_LINK ${CMAKE_SOURCE_DIR}/TheForceEngine/Mods Mods SYMBOLIC)
+	file(CREATE_LINK ${CMAKE_SOURCE_DIR}/TheForceEngine/Shaders Shaders SYMBOLIC)
+	file(CREATE_LINK ${CMAKE_SOURCE_DIR}/TheForceEngine/SoundFonts SoundFonts SYMBOLIC)
+	file(CREATE_LINK ${CMAKE_SOURCE_DIR}/TheForceEngine/UI_Images UI_Images SYMBOLIC)
+	file(CREATE_LINK ${CMAKE_SOURCE_DIR}/TheForceEngine/UI_Text UI_Text SYMBOLIC)
 	include(CreateGitVersionH.cmake)
 	create_git_version_h()
 endif()

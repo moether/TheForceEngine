@@ -70,10 +70,12 @@ TheForceEngine/glslang/
 TheForceEngine/Documentation/blog posts/
 BuildExes/
 Build/
+build/
 TheForceEngine/bug_reports/
 WDFuseCommonFiles/
 x64/Debug/
 CMakeFiles/
+.vscode/
 
 # Linux
 TheForceEngine/tfelnx
